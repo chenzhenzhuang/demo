@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "预约管理",
+  "usingComponents": {
+    "to-agreed": "/pages/myProfile/bookManage/toAgreed",
+    "to-process": "/pages/myProfile/bookManage/toBeProcess",
+    "rejected": "/pages/myProfile/bookManage/rejected",
+    "time-set": "/pages/myProfile/bookManage/timeSet"
+  }
+}

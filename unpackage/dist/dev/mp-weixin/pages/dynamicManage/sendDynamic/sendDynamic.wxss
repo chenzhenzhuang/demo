@@ -1,0 +1,210 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.send-dynamic {
+  width: 750rpx;
+  padding: 0 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.send-dynamic .send-area {
+  width: 690rpx;
+  height: 412rpx;
+  background: #eeeeee;
+  -webkit-border-radius: 12rpx;
+          border-radius: 12rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.send-dynamic .send-area .send-img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.send-dynamic .send-area .send-img .img {
+  width: 120rpx;
+  height: 120rpx;
+  padding: 20rpx 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.send-dynamic .send-area .send-img .img image {
+  width: 100%;
+  height: 100%;
+}
+.send-dynamic .send-area .send-img .title {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular,PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+.send-dynamic .show-area {
+  width: 692rpx;
+  height: 546rpx;
+  background: white;
+  -webkit-box-shadow: 0rpx 8rpx 24rpx 0rpx rgba(0, 0, 0, 0.1);
+          box-shadow: 0rpx 8rpx 24rpx 0rpx rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  padding: 32rpx 30rpx 36rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-border-radius: 14rpx;
+          border-radius: 14rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.send-dynamic .show-area .img {
+  width: 638rpx;
+  height: 384rpx;
+}
+.send-dynamic .show-area .img video {
+  width: 100%;
+  height: 100%;
+}
+.send-dynamic .show-area .delete {
+  margin-top: 28rpx;
+  border: 1rpx solid #e2434b;
+  width: 304rpx;
+  height: 66rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-border-radius: 33rpx;
+          border-radius: 33rpx;
+}
+.send-dynamic .show-area .delete image {
+  width: 24rpx;
+  height: 24rpx;
+}
+.send-dynamic .show-area .delete .title {
+  height: 34rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular,PingFang SC;
+  font-weight: 400;
+  color: #e2434b;
+  line-height: 34rpx;
+}
+.send-dynamic .dynamic-descri {
+  margin-top: 40rpx;
+}
+.send-dynamic .dynamic-descri .title {
+  width: 128rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium,PingFang SC;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 44rpx;
+  margin-bottom: 20rpx;
+}
+.send-dynamic .dynamic-descri .area {
+  width: 690rpx;
+  height: 316rpx;
+  border: 2px solid #eeeeee;
+  position: relative;
+  padding: 20rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.send-dynamic .dynamic-descri .area textarea {
+  width: 100%;
+  height: 100%;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular,PingFang SC;
+}
+.send-dynamic .dynamic-descri .area .count {
+  position: absolute;
+  right: 16rpx;
+  bottom: 20rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular,PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 34rpx;
+}
+.send-dynamic .send-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  width: 540rpx;
+  height: 76rpx;
+  background: #00b7f4;
+  -webkit-border-radius: 40rpx;
+          border-radius: 40rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium,PingFang SC;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 44rpx;
+  position: fixed;
+  bottom: 60rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+

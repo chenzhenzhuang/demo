@@ -1,0 +1,106 @@
+.has-named {
+  position: relative;
+}
+.has-named .has-named-item {
+  height: 136rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding: 0 28rpx 0 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 2rpx solid #EEEEEE;
+}
+.has-named .has-named-item .has-item-left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.has-named .has-named-item .has-item-left .img {
+  width: 94rpx;
+  height: 94rpx;
+  position: relative;
+}
+.has-named .has-named-item .has-item-left .img .head-img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+}
+.has-named .has-named-item .has-item-left .img .sex-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 22px;
+  height: 22px;
+}
+.has-named .has-named-item .has-item-left .has-item-info {
+  margin-left: 18rpx;
+}
+.has-named .has-named-item .has-item-left .has-item-info .title {
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #333333;
+  line-height: 44rpx;
+}
+.has-named .has-named-item .has-item-left .has-item-info .age {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: rgba(0, 0, 0, 0.25);
+  line-height: 34rpx;
+}
+.has-named .has-named-item .has-item-right {
+  width: 120rpx;
+  height: 56rpx;
+  -webkit-border-radius: 8rpx;
+          border-radius: 8rpx;
+  border: 2rpx solid #00b7f4;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #00b7f4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.has-named .after-class-btn {
+  position: fixed;
+  bottom: 54rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 540rpx;
+  height: 76rpx;
+  background: #00b7f4;
+  -webkit-border-radius: 40rpx;
+          border-radius: 40rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 600;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+

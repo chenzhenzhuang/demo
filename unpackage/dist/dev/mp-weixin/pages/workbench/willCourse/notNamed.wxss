@@ -1,0 +1,78 @@
+.not-named .not-named-item {
+  height: 136rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding: 0 28rpx 0 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 2rpx solid #EEEEEE;
+}
+.not-named .not-named-item .not-item-left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.not-named .not-named-item .not-item-left .img {
+  width: 94rpx;
+  height: 94rpx;
+  position: relative;
+}
+.not-named .not-named-item .not-item-left .img .head-img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+}
+.not-named .not-named-item .not-item-left .img .sex-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 22px;
+  height: 22px;
+}
+.not-named .not-named-item .not-item-left .not-item-info {
+  margin-left: 18rpx;
+}
+.not-named .not-named-item .not-item-left .not-item-info .title {
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #333333;
+  line-height: 44rpx;
+}
+.not-named .not-named-item .not-item-left .not-item-info .age {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: rgba(0, 0, 0, 0.25);
+  line-height: 34rpx;
+}
+.not-named .not-named-item .not-item-right {
+  width: 120rpx;
+  height: 56rpx;
+  -webkit-border-radius: 8rpx;
+          border-radius: 8rpx;
+  border: 2rpx solid #00b7f4;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #00b7f4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+

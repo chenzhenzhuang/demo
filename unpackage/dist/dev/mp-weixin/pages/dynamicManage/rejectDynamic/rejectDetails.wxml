@@ -1,0 +1,3 @@
+<view class="audit"><view class="audit-item"><view class="img"><image src="/static/logo.png" mode="aspectFill"></image></view><view class="describe">描述描述描述描述描述描述描述描述描述描述描述描述
+			描述描述描述描述描述描述描述描述描述描述描述</view><view class="send-time">发布时间：2020.05.02 18:02:12</view><view class="reject-time">拒绝时间：2020.05.02 18:02:12</view></view><view class="reject-reason"><view class="title">拒绝原因</view><view class="content">拒绝理由拒绝理由拒绝理由拒绝理由拒绝理由拒绝理由拒绝理
+			由拒绝理由</view></view></view>

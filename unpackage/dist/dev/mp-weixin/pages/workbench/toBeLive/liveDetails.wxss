@@ -1,0 +1,218 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.live-details {
+  width: 750rpx;
+  min-height: 100vh;
+  background: whitesmoke;
+}
+.live-details .to-be-live {
+  padding: 0 0 36rpx 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-bottom: 20rpx;
+}
+.live-details .to-be-live .lived-cover {
+  position: relative;
+  width: 244rpx;
+  height: 244rpx;
+  margin-right: 18rpx;
+}
+.live-details .to-be-live .lived-cover image {
+  width: 100%;
+  height: 100%;
+}
+.live-details .to-be-live .lived-cover .tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 97rpx;
+  height: 50rpx;
+  background: #db0000;
+  -webkit-border-radius: 8rpx;
+          border-radius: 8rpx;
+  opacity: 0.56;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: white;
+}
+.live-details .to-be-live .lived-info view ~ view {
+  margin-top: 14rpx;
+}
+.live-details .to-be-live .lived-info .lived-title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 600;
+  color: #333333;
+  line-height: 44rpx;
+}
+.live-details .to-be-live .lived-info .lived-time,
+.live-details .to-be-live .lived-info .lived-student,
+.live-details .to-be-live .lived-info .lived-instatution {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: rgba(0, 0, 0, 0.5);
+}
+.live-details .live-content {
+  padding: 30rpx;
+  height: calc(100vh - 306rpx);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #FFFFFF;
+}
+.live-details .live-content .live-claim {
+  margin-top: 30rpx;
+}
+.live-details .live-content .live-claim .claim-title {
+  width: 128rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 44rpx;
+}
+.live-details .live-content .live-claim .claim-content {
+  margin-top: 20rpx;
+  width: 692rpx;
+  padding: 20rpx 44rpx 32rpx 24rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #EEEEEE;
+  -webkit-border-radius: 12px;
+          border-radius: 12px;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: rgba(0, 0, 0, 0.25);
+  line-height: 34rpx;
+}
+.live-details .live-content .start-live {
+  margin-top: 64rpx;
+}
+.live-details .live-content .start-live .live-title {
+  width: 128rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 44rpx;
+}
+.live-details .live-content .start-live .live-content {
+  margin-top: 20rpx;
+  width: 690rpx;
+  height: 384rpx;
+  background: #EEEEEE;
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.live-details .live-content .start-live .live-content .live-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.live-details .live-content .start-live .live-content .live-box .times {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium,PingFang SC;
+  font-weight: 600;
+  color: #313131;
+  line-height: 44rpx;
+}
+.live-details .live-content .start-live .live-content .live-box .start-btn {
+  margin-top: 64rpx;
+  width: 540rpx;
+  height: 76rpx;
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 40rpx;
+          border-radius: 40rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium,PingFang SC;
+  font-weight: 600;
+  color: white;
+}
+.live-details .live-content .start-live .live-content .live-box .immed-btn {
+  margin-top: 64rpx;
+  width: 540rpx;
+  height: 76rpx;
+  background: #00b7f4;
+  -webkit-border-radius: 40rpx;
+          border-radius: 40rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium,PingFang SC;
+  font-weight: 600;
+  color: white;
+}
+

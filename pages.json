@@ -1,0 +1,185 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		{
+			"path": "pages/workbench/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+				"path" : "pages/login/login",
+				"style" : {
+					"navigationBarTitleText": "老师工作台"
+				}
+		},
+		{
+		    "path" : "pages/login/forget",
+		    "style" : {
+					"navigationBarTitleText": "忘记密码"
+				}
+		},
+		{
+			"path": "pages/workbench/willCourse/willCourseDetails",
+			"style": {
+				"navigationBarTitleText": "待上课详情"
+			}
+		}, {
+			"path": "pages/workbench/toBeRecorded/recordDetails",
+			"style": {
+				"navigationBarTitleText": "待录制详情"
+			}
+		}, {
+			"path": "pages/workbench/toBeLive/liveDetails",
+			"style": {
+				"navigationBarTitleText": "待直播详情"
+			}
+		}, {
+			"path": "pages/workbench/toBeMarked/workDetails",
+			"style": {
+				"navigationBarTitleText": "作业详情"
+			}
+		},{
+			"path": "pages/coursesTaken/index",
+			"style": {
+				"navigationBarTitleText": "已上课程"
+			}
+		},{
+			"path" : "pages/coursesTaken/classIsOver/classOverDetails",
+			"style" : {
+				"navigationBarTitleText": "上课详情"
+			}
+    },{
+		    "path" : "pages/coursesTaken/classIsOver/assignWork",
+		    "style" : {
+					"navigationBarTitleText": "布置作业"
+				}
+		},{
+		    "path" : "pages/coursesTaken/classIsOver/selectCourse",
+		    "style" : {
+					"navigationBarTitleText": "选择课程"
+				}
+		},{
+		    "path" : "pages/coursesTaken/classIsOver/classDetails",
+		    "style" : {
+					"navigationBarTitleText": "课程目录"
+				}
+		},{
+		    "path" : "pages/coursesTaken/onlineClass/details",
+		    "style" : {
+					"navigationBarTitleText": "详情"
+				}
+		},{
+		    "path" : "pages/coursesTaken/alreadyLive/liveDetails",
+		    "style" : {
+					"navigationBarTitleText": "直播课详情"
+				}
+		},{
+			"path": "pages/dynamicManage/index",
+			"style": {
+				"navigationBarTitleText": "动态管理"
+			}
+		},{
+		    "path" : "pages/dynamicManage/sendDynamic/sendDynamicDetails",
+		    "style" : {
+					"navigationBarTitleText": "动态详情-已发布"
+				}
+		},{
+		    "path" : "pages/dynamicManage/sendDynamic/commentDetails",
+		    "style" : {
+					"navigationBarTitleText": "评论详情"
+				}
+		},{
+		    "path" : "pages/dynamicManage/auditIng/auditDetails",
+		    "style" : {
+					"navigationBarTitleText": "动态详情-审核中"
+				}
+		},{
+		    "path" : "pages/dynamicManage/rejectDynamic/rejectDetails",
+		    "style" : {
+					"navigationBarTitleText": "动态详情-已拒绝"
+				}
+		},{
+		    "path" : "pages/dynamicManage/sendDynamic/sendDynamic",
+		    "style" : {
+					"navigationBarTitleText": "发布动态"
+				}
+		},{
+			"path": "pages/myProfile/index",
+			"style": {
+				"navigationBarTitleText": "我的资料",
+				"navigationBarBackgroundColor": "#27A0F7",
+				"navigationBarTextStyle": "white"
+			}
+		},{
+			"path" : "pages/myProfile/dataManage",
+			"style" : {
+				"navigationBarTitleText": "资料管理"
+			}
+    },{
+			"path" : "pages/myProfile/bookManage/index",
+			"style" : {
+				"navigationBarTitleText": "预约管理"
+			}
+   },{
+			"path" : "pages/myProfile/bookManage/toAgreeDetails",
+			"style" : {
+				"navigationBarTitleText": "预约待同意详情"
+			}
+	},{
+			"path" : "pages/myProfile/bookManage/rejectDetails",
+			"style" : {
+				"navigationBarTitleText": "预约已拒绝详情"
+			}
+	},{
+			"path" : "pages/myProfile/fansManage/index",
+			"style" : {
+				"navigationBarTitleText": "粉丝管理"
+			}
+	},{
+			"path" : "pages/myProfile/fansManage/batchDelete",
+			"style" : {
+				"navigationBarTitleText": "批量删除"
+			}
+		}    ,{
+            "path" : "pages/workbench/toBeLive/living",
+            "style" : {
+							"navigationBarTitleText": "正在直播"
+						}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F7F7F7",
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle":"custom"
+	},
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#333333",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/workbench/index",
+			"iconPath": "static/tabbar/console.png",
+			"selectedIconPath": "static/tabbar/consoled.png",
+			"text": "工作台"
+		}, {
+			"pagePath": "pages/coursesTaken/index",
+			"iconPath": "static/tabbar/course.png",
+			"selectedIconPath": "static/tabbar/coursed.png",
+			"text": "已上课程"
+		}, {
+			"pagePath": "pages/dynamicManage/index",
+			"iconPath": "static/tabbar/state.png",
+			"selectedIconPath": "static/tabbar/stated.png",
+			"text": "动态管理"
+		}, {
+			"pagePath": "pages/myProfile/index",
+			"iconPath": "static/tabbar/mine.png",
+			"selectedIconPath": "static/tabbar/mined.png",
+			"text": "我的资料"
+		}]
+	}
+}

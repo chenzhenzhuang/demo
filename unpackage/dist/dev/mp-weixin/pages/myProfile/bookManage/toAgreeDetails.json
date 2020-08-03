@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "预约待同意详情",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup/uni-popup"
+  }
+}

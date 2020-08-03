@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "粉丝管理",
+  "usingComponents": {
+    "new-fans": "/pages/myProfile/fansManage/newFans",
+    "all-fans": "/pages/myProfile/fansManage/allFans"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "批量删除",
+  "usingComponents": {
+    "me-select": "/components/me-select/me-select",
+    "batchDelete-me-select-default": "/pages/myProfile/fansManage/batchDelete-me-select-default"
+  }
+}

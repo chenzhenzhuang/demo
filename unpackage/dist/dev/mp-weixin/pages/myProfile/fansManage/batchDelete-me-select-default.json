@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "batchDelete-me-select-default": "/pages/myProfile/fansManage/batchDelete-me-select-default",
+    "me-select": "/components/me-select/me-select"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "待上课详情",
+  "usingComponents": {
+    "not-name": "/pages/workbench/willCourse/notNamed",
+    "has-named": "/pages/workbench/willCourse/hasNamed"
+  }
+}

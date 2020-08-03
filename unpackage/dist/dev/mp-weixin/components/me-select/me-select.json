@@ -1,0 +1,9 @@
+{
+  "componentGenerics": {
+    "scoped-slots-default": true
+  },
+  "component": true,
+  "usingComponents": {
+    "me-select": "/components/me-select/me-select"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "on-line": "/pages/coursesTaken/onlineClass/hasBeenLaunched",
+    "audit": "/pages/coursesTaken/onlineClass/auditing",
+    "reject": "/pages/coursesTaken/onlineClass/reject"
+  }
+}

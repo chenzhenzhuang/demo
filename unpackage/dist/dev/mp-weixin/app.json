@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/workbench/index",
+    "pages/login/login",
+    "pages/workbench/willCourse/willCourseDetails",
+    "pages/workbench/toBeRecorded/recordDetails",
+    "pages/workbench/toBeLive/liveDetails",
+    "pages/workbench/toBeMarked/workDetails",
+    "pages/coursesTaken/index",
+    "pages/coursesTaken/classIsOver/classOverDetails",
+    "pages/coursesTaken/classIsOver/assignWork",
+    "pages/coursesTaken/classIsOver/selectCourse",
+    "pages/coursesTaken/classIsOver/classDetails",
+    "pages/coursesTaken/onlineClass/details",
+    "pages/coursesTaken/alreadyLive/liveDetails",
+    "pages/dynamicManage/index",
+    "pages/dynamicManage/sendDynamic/sendDynamicDetails",
+    "pages/dynamicManage/sendDynamic/commentDetails",
+    "pages/dynamicManage/auditIng/auditDetails",
+    "pages/dynamicManage/rejectDynamic/rejectDetails",
+    "pages/dynamicManage/sendDynamic/sendDynamic",
+    "pages/myProfile/index",
+    "pages/myProfile/dataManage",
+    "pages/myProfile/bookManage/index",
+    "pages/myProfile/bookManage/toAgreeDetails",
+    "pages/myProfile/bookManage/rejectDetails",
+    "pages/myProfile/fansManage/index",
+    "pages/myProfile/fansManage/batchDelete"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F7F7F7",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#333333",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/workbench/index",
+        "iconPath": "static/tabbar/console.png",
+        "selectedIconPath": "static/tabbar/consoled.png",
+        "text": "工作台"
+      },
+      {
+        "pagePath": "pages/coursesTaken/index",
+        "iconPath": "static/tabbar/course.png",
+        "selectedIconPath": "static/tabbar/coursed.png",
+        "text": "已上课程"
+      },
+      {
+        "pagePath": "pages/dynamicManage/index",
+        "iconPath": "static/tabbar/state.png",
+        "selectedIconPath": "static/tabbar/stated.png",
+        "text": "动态管理"
+      },
+      {
+        "pagePath": "pages/myProfile/index",
+        "iconPath": "static/tabbar/mine.png",
+        "selectedIconPath": "static/tabbar/mined.png",
+        "text": "我的资料"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

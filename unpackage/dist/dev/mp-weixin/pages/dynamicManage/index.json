@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "动态管理",
+  "usingComponents": {
+    "send-dynamic": "/pages/dynamicManage/sendDynamic/index",
+    "audit-dynamic": "/pages/dynamicManage/auditIng/index",
+    "reject-dynamic": "/pages/dynamicManage/rejectDynamic/index"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "will-course": "/pages/workbench/willCourse/index",
+    "to-be-record": "/pages/workbench/toBeRecorded/index",
+    "to-be-live": "/pages/workbench/toBeLive/index",
+    "to-be-marked": "/pages/workbench/toBeMarked/index"
+  }
+}
