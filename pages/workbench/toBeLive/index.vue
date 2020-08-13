@@ -32,13 +32,13 @@
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				date:''
+				date:this.dateS()
 			};
 		},
 		mounted() {
 			this.handleToBeLive()
 		},
-		computed:{
+		methods:{
 			dateS(){
 				let year = new Date().getFullYear();
 				let month = new Date().getMonth() + 1;
@@ -46,9 +46,7 @@
 				let date = new Date().getDate()
 			let d=date>=9? date:'0'+date
 				return year+ '-' + m +'-'+ d;
-			}
-		},
-		methods:{
+			},
 			// 滚动加载
 			scrollBottom(){
 				if(this.pages*this.pageSize<this.count){
@@ -60,7 +58,7 @@
 			//待直播列表
 			handleToBeLive(){
 				this.$request.post('broadcast/index/wait_list',{
-					started_at:this.date?this.date:this.dateS,
+					started_at:this.date,
 					pages:this.pages
 				}).then(res=>{
 					console.log(res)

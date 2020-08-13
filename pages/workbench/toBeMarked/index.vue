@@ -33,13 +33,13 @@
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				date:''
+				date:this.dateS()
 			};
 		},
 		mounted() {
 			this.handleToBeMarked()
 		},
-		computed:{
+		methods:{
 			dateS(){
 				let year = new Date().getFullYear();
 				let month = new Date().getMonth() + 1;
@@ -47,9 +47,7 @@
 				let date = new Date().getDate()
 			let d=date>=9? date:'0'+date
 				return year+ '-' + m +'-'+ d;
-			}
-		},
-		methods:{
+			},
 			// 滚动加载
 			scrollBottom(){
 				if(this.pages*this.pageSize<this.count){

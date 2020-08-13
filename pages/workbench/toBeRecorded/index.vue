@@ -35,13 +35,16 @@
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				date:''
+				date:this.dateS()
 			};
 		},
 		mounted() {
 			this.handleToBeRecord()
 		},
 		computed:{
+			
+		},
+		methods:{
 			dateS(){
 				let year = new Date().getFullYear();
 				let month = new Date().getMonth() + 1;
@@ -49,9 +52,7 @@
 				let date = new Date().getDate()
 			let d=date>=9? date:'0'+date
 				return year+ '-' + m +'-'+ d;
-			}
-		},
-		methods:{
+			},
 			// 滚动加载
 			scrollBottom(){
 				if(this.pages*this.pageSize<this.count){
@@ -64,7 +65,7 @@
 			handleToBeRecord(){
 				this.$queue.showLoading('加载中...')
 				this.$request.post('catalog/index/list',{
-					record_at:this.date?this.date:this.dateS,
+					record_at:this.date,
 					pages:this.pages
 				}).then(res=>{
 					console.log(res)
