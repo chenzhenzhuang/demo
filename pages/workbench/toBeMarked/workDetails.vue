@@ -135,17 +135,23 @@
 			},
 			// 批改作业
 			handleCorrect(){
-				this.$request.post('operation/index/batch',{
-					id:this.wid,
-					content:this.scoldeds,
-					flower:this.isFlower? '1':'0'
-				}).then(res=>{
-					console.log(res)
-					this.$queue.showToast(res.msg)
-					setTimeout(()=>{
-						uni.navigateBack()
-					},1000)
-				})
+				if(this.scoldeds!=''){
+					this.$request.post('operation/index/batch',{
+						id:this.wid,
+						content:this.scoldeds,
+						flower:this.isFlower? '1':'0'
+					}).then(res=>{
+						console.log(res)
+						this.$queue.showToast(res.msg)
+						setTimeout(()=>{
+							uni.navigateBack()
+						},1000)
+					})
+				}else{
+					this.$queue.showToast('请对学生做出评价')
+					return
+				}
+				
 			},
 			// 详情
 			getDetails(){

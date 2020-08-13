@@ -26,20 +26,28 @@
 
 <script>
 	export default {
-		props:["date"],
 		data() {
 			return {
 				willCourseList:[],														//待上课列表
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				// date:'',																			//时间
+				date:'',																			//时间
 			};
 		},
 		mounted() {
 			this.handleWillList()
 		},
-		
+		computed:{
+			dateS(){
+				let year = new Date().getFullYear();
+				let month = new Date().getMonth() + 1;
+			let m =	month>10 ? month:'0'+month
+				let date = new Date().getDate()
+			let d=date>=9? date:'0'+date
+				return year+ '-' + m +'-'+ d;
+			}
+		},
 		methods:{
 			scrollBottom(){
 				if(this.pages*this.pageSize<this.count){
@@ -52,7 +60,7 @@
 			handleWillList(){
 				this.$queue.showLoading('加载中...')
 				this.$request.post('schedule/index/wait_list',{
-					class_time:this.date,
+					class_time:this.date?this.date:this.dateS,
 					pages:this.pages
 				}).then(res=>{
 					console.log(res)

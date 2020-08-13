@@ -11,7 +11,7 @@
 		</view>
 		<view class="video">
 			<!-- <view class="play-time">已播时间：15:15</view> -->
-			<video src=''></video>
+			<video id="previewVideo" autoplay muted ></video>
 			<view class="stop">结束</view>
 		</view>
 		<view class="chat-box">
@@ -29,28 +29,73 @@
 					<view class="right">老师我不会</view>
 				</view>
 			</scroll-view>
-			<view class="send-box">
-				<input type="text" v-model="question" placeholder="请输入你的问题" />
-				<view class="send-btn">
-					发送
-				</view>
-			</view>
+			<!-- <view class="send-box">
+				<button type="default" @click="handleEnter">预览</button>
+			</view> -->
 		</view>
 	</view>
 </template>
 
 <script>
+	import {ZegoExpressEngine} from 'zego-express-engine-webrtc'
 	export default {
 		data() {
 			return {
 				question:'',																					//回答问题
+				atoken: "",																					//token
+				roomId:'',																						//房间id
+				uId:'',																						//用户id
+				uName:'',																						//用户名
 			};
 		},
-		onLoad() {
+		onLoad(option) {
+			// this.roomId = option.roomId
+			// this.getToken()
+			this.getUserInfo()
+			this.startLive()
 			
 		},
+		onShow() {
+		},
 		methods:{
-			
+			// 先获取token
+			getToken(){
+				this.$request.post('broadcast/sdk/token',{uid:this.$queue.getData('uid')}).then(res=>{
+					this.atoken = res.result
+				})
+			},
+			getUserInfo(){
+				this.$request.post('teacher/index/profile').then(res=>{
+					this.uId = res.result.uid,
+					this.uName = res.result.name
+				})
+				
+			},
+			startLive(){
+			zego = new ZegoExpressEngine(4269792966, 'wss://webliveroom-test.zego.im/ws')
+			this.$request.post('broadcast/sdk/token',{uid:this.$queue.getData('uid')}).then(res =>{
+				this.aceToken=res.result
+				this.$request.post('teacher/index/profile').then(res =>{
+					zego.loginRoom('0911', this.aceToken,{
+						userID:res.result.uid, 
+						userName:res.result.name,
+					}).then(res =>{
+						if(res){
+							zg.createStream().then(res => {
+								let previewStream = res
+								this.streamId = res.id
+								if(zg.startPublishingStream(this.streamId,previewStream)){
+									let videoPlay =  document.querySelector('video');
+									videoPlay.srcObject = previewStream;
+								}
+							}).catch(err => {
+								console.log(err)
+							})
+						}
+					})
+				})
+			})
+			}
 		}
 	}
 </script>
@@ -124,7 +169,7 @@
 	}
 	.chat-box{
 		.chart{
-			height: calc(100vh - 678rpx);
+			height: calc(100vh - 504rpx);
 			background:rgba(245,245,245,1);
 			padding: 48rpx 42rpx;
 			box-sizing: border-box;

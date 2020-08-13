@@ -1,6 +1,11 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
+		{
+		        "path" : "pages/workbench/toBeLive/living",
+		        "style" : {
+							"navigationBarTitleText": "正在直播"
+						}
+		    },
 		{
 			"path": "pages/workbench/index",
 			"style": {
@@ -141,12 +146,7 @@
 			"style" : {
 				"navigationBarTitleText": "批量删除"
 			}
-		}    ,{
-            "path" : "pages/workbench/toBeLive/living",
-            "style" : {
-							"navigationBarTitleText": "正在直播"
-						}
-        }
+		}    
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

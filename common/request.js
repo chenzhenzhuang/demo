@@ -2,6 +2,8 @@ let baseUrl = 'https://yeteacher.xyyun.co/'
 
 
 module.exports = {
+	
+	
 	post: (url, data)=> {
 		url = baseUrl + url;
 		let token = uni.getStorageSync("token");
@@ -15,19 +17,24 @@ module.exports = {
 						"token": token
 					},
 					success: (result)=> {
-						if (result.data.code == '10001' || result.data.code == '10002') {
+						if(result.data.code == '200'){
 							succ.call(self, result.data)
-						uni.reLaunch({
-							url: '/pages/login/login'
-						})
+						}else if (result.data.code == '10001' || result.data.code == '10002') {
+							succ.call(self, result.data)
+							uni.reLaunch({
+								url: '/pages/login/login'
+							})
 						} else {
-							succ.call(self, result.data)
+							uni.showToast({
+								title:result.data.msg||'服务器错误，请重试',
+								icon:'none'
+							})
 						}
 	
 					},
 					fail: function(e) {
 						uni.showToast({
-							title:'请检查网络是否链接',
+							title:'服务器错误，请重试',
 							icon:'none'
 						})
 						error.call(self, e)
@@ -95,6 +102,7 @@ module.exports = {
 					data: data,
 					method: "POST",
 					success: res=> {
+						console.log(res)
 						succ.call(self, res)
 					},
 					fail: err=> {

@@ -48,7 +48,9 @@
 		<view class="data-item">
 			<view class="title">所授课程</view>
 			<view class="right">
-				<view class="content">音乐-钢琴/小提琴</view>
+				<view class="content">
+					<view v-for="item in info.profile.teacherCourseCategory" :key="item.id">{{item.courseCategory.courseCategory.title}}-{{item.courseCategory.title}}/</view>
+				</view>
 		
 			</view>
 		</view>
@@ -446,11 +448,13 @@
 			display: flex;
 			align-items: center;
 			.content{
+				display: flex;
 				font-size:28rpx;
 				font-family:PingFangSC-Regular,PingFang SC;
 				font-weight:400;
 				color:rgba(49,49,49,1);
 			}
+	
 			.img{
 					width: 60rpx;
 					height: 60rpx;

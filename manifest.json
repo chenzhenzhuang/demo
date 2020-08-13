@@ -1,6 +1,6 @@
 {
-    "name" : "yueEr-teacher",
-    "appid" : "",
+    "name" : "越耳教育教师工作台",
+    "appid" : "__UNI__2E2D3A0",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -75,14 +75,22 @@
         "usingComponents" : true
     },
     "h5" : {
-        "title" : "越耳教育",
+        "title" : "越耳教育教师工作台",
         "router" : {
-            "mode" : "hash"
+            "mode" : "hash",
+            "base" : ""
         },
         "optimization" : {
             "treeShaking" : {
                 "enable" : true
             }
-        }
+        },
+        "sdkConfigs" : {
+            "maps" : {}
+        },
+        "devServer" : {
+            "https" : false
+        },
+        "domain" : "https://yeteacher.xyyun.co"
     }
 }

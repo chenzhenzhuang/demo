@@ -64,7 +64,8 @@
 						uni.reLaunch({
 							url: '/pages/workbench/index'
 						})
-						this.$queue.setData('token', res.data.result.token);
+						this.$queue.setData('token', res.data.result.token)
+						this.$queue.setData('uid', res.data.result.uid)
 					}else{
 						this.$queue.showToast(res.data.msg)
 					}
@@ -73,6 +74,7 @@
 					console.log(res)
 					uni.hideLoading();
 				});
+				
 			}
 		}
 	}

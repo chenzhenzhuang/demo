@@ -2,9 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import queue from './common/queue'
 import request from './common/request.js'
-import {ZegoExpressEngine }from 'common/ZegoExpressWebRTC-1.9.0.js'
 Vue.config.productionTip = false
-Vue.prototype.zg = new ZegoExpressEngine(4269792966,'wss://webliveroom-test.zego.im/ws'),
 //时间过滤器
 Vue.filter('times',function(value){
 	return value.replace(/-/g,'.')

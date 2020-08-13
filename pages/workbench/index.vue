@@ -13,16 +13,16 @@
 		</view>
 		<view class="work-box">
 				<view v-if="active === 0">
-						<will-course ref="wCorse" :date = "date"></will-course>
+						<will-course ref="wCorse" ></will-course>
 				</view>
 				<view v-if="active === 1">
-						<to-be-record ref='record':date = "date"></to-be-record>
+						<to-be-record ref='record'></to-be-record>
 				</view>
 				<view v-if="active === 2">
-						<to-be-live ref="live" :date = "date"></to-be-live>
+						<to-be-live ref="live" ></to-be-live>
 				</view>
 				<view v-if="active === 3">
-						<to-be-marked ref='marked' :date = "date"></to-be-marked>
+						<to-be-marked ref='marked' ></to-be-marked>
 				</view>
 		</view>
 	</view>
@@ -45,11 +45,11 @@
 		data() {
 			return {
 			 active: 0,					//选中的item
-			 date:''
 			}
 		},
 		onReachBottom() {
 			if(this.active==0){
+				
 				this.$refs.wCorse.scrollBottom()
 			}else if(this.active==1){
 				this.$refs.record.scrollBottom()
@@ -59,22 +59,33 @@
 				this.$refs.marked.scrollBottom()
 			}
 		},
-		computed:{
-			dateS(){
-				let date = {
-						year: new Date().getFullYear(),
-						month: new Date().getMonth() + 1,
-						date:new Date().getDate(),
-					}
-					return date.year + '-' + 0 + date.month + '-' + 0 + date.date;
-			}
-		},
 		onShow() {
-			// this.date = this.dateS
+			this.date = this.dateS
 		},
 		methods: {
 			 change(e){
-				 this.date = e.fulldate
+				 
+				 if(this.active==0){
+					 this.$refs.wCorse.date = e.fulldate
+					 this.$refs.wCorse.pages=0
+					this.$refs.wCorse.willCourseList=[]
+				 	this.$refs.wCorse.handleWillList()
+				 }else if(this.active==1){
+					 this.$refs.record.date = e.fulldate
+					  this.$refs.record.pages=0
+					 this.$refs.record.toBeRecord=[]
+				 	this.$refs.record.handleToBeRecord()
+				 }else if(this.active==2){
+					 this.$refs.live.date = e.fulldate
+					 this.$refs.live.pages=0
+					 this.$refs.live.toBelive = []
+				 	this.$refs.live.handleToBeLive()
+				 }else if(this.active==3){
+					 this.$refs.marked.date = e.fulldate
+					 this.$refs.marked.pages=0
+					 this.$refs.marked.workList = []
+				 	this.$refs.marked.handleToBeMarked()
+				 }
 			 },
 			//切换
 			slider(index){

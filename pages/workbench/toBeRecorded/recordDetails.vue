@@ -85,18 +85,23 @@
 				this.videoTimes = e.detail.duration
 			},
 			// 提交视频
-			submitRecord(){
-				this.$request.post('catalog/index/upload',{
-					id:this.rid,
-					video_url:this.videoSrc,
-					cover:this.videoCover,
-					duration:this.videoTimes
-				}).then(res=>{
-					this.$queue.showToast(res.msg)
-					setTimeout(()=>{
-					uni.navigateBack()	
-					},1000)
-				})
+		submitRecord(){
+				if(this.videoCover!=''&&this.videoSrc!=''){
+					this.$request.post('catalog/index/upload',{
+						id:this.rid,
+						video_url:this.videoSrc,
+						cover:this.videoCover,
+						duration:this.videoTimes
+					}).then(res=>{
+						this.$queue.showToast(res.msg)
+						setTimeout(()=>{
+						uni.navigateBack()	
+						},500)
+					})
+				}else{
+					this.$queue.showToast('上传视频不能为空')
+				}
+				
 			},
 			// 删除视频
 			deleteVideo(){

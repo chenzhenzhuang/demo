@@ -62,8 +62,6 @@
 </template>
 
 <script>
-	// 直播插件
-	
 	import countdownTimer from '@/components/countdown-timer/countdown-timer.vue'
 	export default {
 		components:{
@@ -85,22 +83,16 @@
 		onLoad(option) {
 			this.lid = option.lid
 			this.getDetails()
-			this.getAceToken()
 		},
 		methods:{
-			getAceToken(){
-				this.$request.post('broadcast/sdk/access_token').then(res=>{
-					this.aceToken = res.data.access_token
-				})
-			},
 			startLive(){
 				this.$request.post('broadcast/index/start',{
 					id:this.lid
 				}).then(res=>{
-					console.log(res)
+					
 					this.$queue.showToast(res.msg)
 					uni.navigateTo({
-						url:'/pages/workbench/toBeLive/living'
+						url:'/pages/workbench/toBeLive/living?roomId='+this.lid
 					})
 				})
 			},
@@ -114,7 +106,6 @@
 				this.$request.post('broadcast/index/details',{
 					id:this.lid
 				}).then(res=>{
-					console.log(res)
 					this.liveDetails = res.result
 				})
 			}

@@ -29,17 +29,27 @@
 
 <script>
 	export default {
-		props:["date"],
 		data() {
 			return {
 				toBeRecord:[],														//待录制列表
 				pages:0,																			//页码
 				pageSize:'',																	//页数
-				count:''																			//总量
+				count:'',																			//总量
+				date:''
 			};
 		},
 		mounted() {
 			this.handleToBeRecord()
+		},
+		computed:{
+			dateS(){
+				let year = new Date().getFullYear();
+				let month = new Date().getMonth() + 1;
+			let m =	month>10 ? month:'0'+month
+				let date = new Date().getDate()
+			let d=date>=9? date:'0'+date
+				return year+ '-' + m +'-'+ d;
+			}
 		},
 		methods:{
 			// 滚动加载
@@ -54,7 +64,7 @@
 			handleToBeRecord(){
 				this.$queue.showLoading('加载中...')
 				this.$request.post('catalog/index/list',{
-					record_at:this.date,
+					record_at:this.date?this.date:this.dateS,
 					pages:this.pages
 				}).then(res=>{
 					console.log(res)
