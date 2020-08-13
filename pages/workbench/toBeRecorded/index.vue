@@ -35,7 +35,7 @@
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				date:this.dateS()
+				date:getApp().globalData.dateTime
 			};
 		},
 		mounted() {

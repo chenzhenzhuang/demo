@@ -1,24 +1,26 @@
 <template>
 	<view class="login">
-		<view class="logo">
-			<image src="/static/login.png" mode="aspectFill"></image>
-		</view>
-		<view class="login-content">
-			<view class="phone">
-				<input type="text" v-model="phone" placeholder="请输入手机号" placeholder-class="place-style" />
+		<div class="login-inner-box">
+			<view class="logo">
+				<image src="/static/login.png" mode="aspectFill"></image>
 			</view>
-			<view class="code">
-				<input type="text" v-model="pwd" :password="true" placeholder="请输入密码" placeholder-class="place-style"/>
+			<view class="login-content">
+				<view class="phone">
+					<input type="text" v-model="phone" placeholder="请输入手机号" placeholder-class="place-style" />
+				</view>
+				<view class="code">
+					<input type="text" v-model="pwd" :password="true" placeholder="请输入密码" placeholder-class="place-style"/>
+				</view>
 			</view>
-		</view>
-		<view class="submit-box">
-			<view class="btn" @click="startLogin">
-				登录
+			<view class="submit-box">
+				<view class="btn" @click="startLogin">
+					登录
+				</view>
+				<view class="no-remember" @click="goForget">
+					忘记密码？
+				</view>
 			</view>
-			<view class="no-remember" @click="goForget">
-				忘记密码？
-			</view>
-		</view>
+		</div>
 	</view>
 </template>
 
@@ -82,13 +84,21 @@
 
 <style lang="scss">
 .login{
-	padding: 0 62rpx 0 66rpx;
 	box-sizing: border-box;
 	display: flex;
-	align-items: center;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	.login-inner-box{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+		
+	}
 	.logo{
-		margin-top: 64rpx;
 		width: 168rpx;
 		height: 104rpx;
 		image{
@@ -135,8 +145,8 @@
 		.btn{
 			width: 100%;
 			height:80rpx;
-			background:rgba(0,183,244,0.3);
-			border-radius:40px;
+			background:rgb(0,183,244);
+			border-radius:40rpx;
 			font-size:28rpx;
 			font-family:PingFangSC-Medium,PingFang SC;
 			font-weight:600;

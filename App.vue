@@ -1,10 +1,10 @@
 <script>
 	export default {
 		globalData: {  
-				text: 'text'  
+				text: 'text'
 		},
 		onLaunch: function() {
-			console.log('App Launch')
+			
 			
 		},
 		onShow: function() {

@@ -32,13 +32,16 @@
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				date:this.getDate(),																			//时间
+				date:getApp().globalData.dateTime,																			//时间
 			};
 		},
 		mounted() {
 			this.handleWillList()
 		},
 		methods:{
+			reset(){
+				this.willCourseList = []
+			},
 			getDate(){
 					let year = new Date().getFullYear();
 					let month = new Date().getMonth() + 1;

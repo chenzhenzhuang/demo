@@ -49,7 +49,6 @@
 		},
 		onReachBottom() {
 			if(this.active==0){
-				
 				this.$refs.wCorse.scrollBottom()
 			}else if(this.active==1){
 				this.$refs.record.scrollBottom()
@@ -60,30 +59,33 @@
 			}
 		},
 		onShow() {
-			this.date = this.dateS
+			getApp().globalData.dateTime = this.dateS()
 		},
 		methods: {
+			dateS(){
+				let year = new Date().getFullYear();
+				let month = new Date().getMonth() + 1;
+			let m =	month>10 ? month:'0'+month
+				let date = new Date().getDate()
+			let d=date>=9? date:'0'+date
+				return year+ '-' + m +'-'+ d;
+			},
 			 change(e){
-				 
+				 getApp().globalData.dateTime=e.fulldate
 				 if(this.active==0){
-					 this.$refs.wCorse.date = e.fulldate
-					 this.$refs.wCorse.pages=0
-					this.$refs.wCorse.willCourseList=[]
+					this.$refs.wCorse.pages=0
+					this.$refs.wCorse.reset()
 				 	this.$refs.wCorse.handleWillList()
 				 }else if(this.active==1){
-					 this.$refs.record.date = e.fulldate
 					  this.$refs.record.pages=0
-					 this.$refs.record.toBeRecord=[]
 				 	this.$refs.record.handleToBeRecord()
 				 }else if(this.active==2){
-					 this.$refs.live.date = e.fulldate
 					 this.$refs.live.pages=0
-					 this.$refs.live.toBelive = []
+					 this.$refs.live.reset()
 				 	this.$refs.live.handleToBeLive()
 				 }else if(this.active==3){
-					 this.$refs.marked.date = e.fulldate
 					 this.$refs.marked.pages=0
-					 this.$refs.marked.workList = []
+					 this.$refs.marked.reset()
 				 	this.$refs.marked.handleToBeMarked()
 				 }
 			 },

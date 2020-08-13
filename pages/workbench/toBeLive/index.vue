@@ -32,20 +32,15 @@
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				date:this.dateS()
+				date:getApp().globalData.dateTime
 			};
 		},
 		mounted() {
 			this.handleToBeLive()
 		},
 		methods:{
-			dateS(){
-				let year = new Date().getFullYear();
-				let month = new Date().getMonth() + 1;
-			let m =	month>10 ? month:'0'+month
-				let date = new Date().getDate()
-			let d=date>=9? date:'0'+date
-				return year+ '-' + m +'-'+ d;
+			reset(){
+				this.toBelive = []
 			},
 			// 滚动加载
 			scrollBottom(){

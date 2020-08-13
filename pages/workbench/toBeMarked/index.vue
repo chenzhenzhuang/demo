@@ -33,13 +33,16 @@
 				pages:0,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
-				date:this.dateS()
+				date:getApp().globalData.dateTime
 			};
 		},
 		mounted() {
 			this.handleToBeMarked()
 		},
 		methods:{
+			reset(){
+				this.workList = []
+			},
 			dateS(){
 				let year = new Date().getFullYear();
 				let month = new Date().getMonth() + 1;

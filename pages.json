@@ -1,17 +1,12 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-		        "path" : "pages/workbench/toBeLive/living",
-		        "style" : {
-							"navigationBarTitleText": "正在直播"
-						}
-		    },
-		{
 			"path": "pages/workbench/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "老师工作台"
 			}
 		},
+		
 		{
 				"path" : "pages/login/login",
 				"style" : {
@@ -39,7 +34,14 @@
 			"style": {
 				"navigationBarTitleText": "待直播详情"
 			}
-		}, {
+		}, 
+		{
+		        "path" : "pages/workbench/toBeLive/living",
+		        "style" : {
+							"navigationBarTitleText": "正在直播"
+						}
+		    },
+		{
 			"path": "pages/workbench/toBeMarked/workDetails",
 			"style": {
 				"navigationBarTitleText": "作业详情"
