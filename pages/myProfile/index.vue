@@ -1,5 +1,5 @@
 <template>
-	<view class="data-info" v-if="info!=''">
+	<view class="data-info" >
 		<view class="data-bg">
 			<image src="/static/bg.png" mode="aspectFill"></image>
 		</view>

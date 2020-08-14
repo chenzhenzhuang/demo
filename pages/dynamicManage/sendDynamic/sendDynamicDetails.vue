@@ -9,7 +9,7 @@
 			</view>
 			<view class="dynamic-info">
 				<view class="send-times">
-					发布时间：{{dynamicContent.release_at|times}}
+					发布时间：{{dynamicContent.created_at|times}}
 				</view>
 				<view class="count">
 					<view>点赞：{{dynamicContent.like}}</view>

@@ -15,7 +15,7 @@
 								私有课
 							</view>
 							<view class="tag-common" v-if="item.onlineCourse.ifopen==1">
-								公共课
+								公开课
 							</view>
 						</view>
 						<view class="onlineed-info">
@@ -44,7 +44,7 @@
 								私有课
 							</view>
 							<view class="tag-common" v-if="item.onlineCourse.ifopen==1">
-								公共课
+								公开课
 							</view>
 						</view>
 						<view class="auditinged-info">
@@ -73,7 +73,7 @@
 								私有课
 							</view>
 							<view class="tag-common" v-if="item.onlineCourse.ifopen==1">
-								公共课
+								公开课
 							</view>
 						</view>
 						<view class="rejected-info">

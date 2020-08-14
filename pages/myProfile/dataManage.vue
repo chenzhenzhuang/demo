@@ -1,5 +1,5 @@
 <template>
-	<view class="data-manage" v-if="info!=''">
+	<view class="data-manage">
 		<view class="data-item" @click="upDateImg">
 			<view class="title">头像</view>
 			<view class="right">
@@ -195,12 +195,12 @@
 				codeText:'获取验证码',
 				pwdSwitch:true,
 				pwdText:'获取验证码',
-				sexList:[{value:'0',title:'我是女生'},{value:'1',title:'我是男生'}],
+				sexList:[{'value':'0','title':'我是女生'},{'value':'1','title':'我是男生'}],
 				timer:null,																					//节流
 			};
 		},
 		onLoad() {
-			this.getAgeList()
+			// this.getAgeList()
 			this.getInfo()
 		},
 		
@@ -279,13 +279,13 @@
 				})
 			},
 			// 年龄
-			getAgeList(){
-				let age = []
-				for(let i = 0; i<=100; i++){
-					age.push({value:i,title:i+'岁'})
-				}
-				this.ageList = age
-			},
+			// getAgeList(){
+			// 	let age = []
+			// 	for(let i = 0; i<=100; i++){
+			// 		age.push({value:i,title:i+'岁'})
+			// 	}
+			// 	this.ageList = age
+			// },
 			
 			// 打开修改详细地址,
 			changAddress(){
@@ -333,10 +333,11 @@
 								}
 							})
 						}else{
-							uni.showToast({
-								title:'您的手机号格式不正确',
-								icon:'none'
-							})
+							// uni.showToast({
+							// 	title:'您的手机号格式不正确',
+							// 	icon:'none'
+							// })
+							this.$queue.showToast('您的手机号格式不正确')
 						}
 					}
 				}, 500)
@@ -386,10 +387,11 @@
 								}
 							})
 						}else{
-							uni.showToast({
-								title:'您的手机号格式不正确',
-								icon:'none'
-							})
+							// uni.showToast({
+							// 	title:'您的手机号格式不正确',
+							// 	icon:'none'
+							// })
+							this.$queue.showToast('您的手机号格式不正确')
 						}
 					}
 				}, 500)

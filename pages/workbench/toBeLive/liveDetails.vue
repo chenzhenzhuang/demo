@@ -2,7 +2,7 @@
 	<view class="live-details" v-if="liveDetails!=''">
 		<view class="to-be-live">
 			<view class="lived-cover">
-				<image :src="liveDetails.cover" mode="aspectFill"></image>
+					<image :src="liveDetails.cover" mode="aspectFill"></image>
 				<view class="tag">
 					<!-- 私有课 -->
 					{{liveDetails.ifopen?'公开课':'私有课'}}
@@ -43,8 +43,8 @@
 								剩余开课时间：
 								<!-- 15:55 -->
 								<countdown-timer :time="timeout" @finish='complate'>
-								    <template v-slot="{day,minute, second}">
-								       <view>{{day}}:{{minute}}:{{second}}</view>       
+								    <template v-slot="{day,hour,minute, second}">
+								       <view>{{day}}天{{hour}}:{{minute}}:{{second}}</view>       
 								    </template>
 								</countdown-timer>
 								</view>

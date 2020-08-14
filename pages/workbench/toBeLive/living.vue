@@ -72,11 +72,11 @@
 				
 			},
 			startLive(){
-			zego = new ZegoExpressEngine(4269792966, 'wss://webliveroom-test.zego.im/ws')
+			let	zg = new ZegoExpressEngine(4269792966, 'wss://webliveroom-test.zego.im/ws')
 			this.$request.post('broadcast/sdk/token',{uid:this.$queue.getData('uid')}).then(res =>{
 				this.aceToken=res.result
 				this.$request.post('teacher/index/profile').then(res =>{
-					zego.loginRoom('0911', this.aceToken,{
+					zg.loginRoom('0911', this.aceToken,{
 						userID:res.result.uid, 
 						userName:res.result.name,
 					}).then(res =>{

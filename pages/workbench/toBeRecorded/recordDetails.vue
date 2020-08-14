@@ -96,6 +96,7 @@
 						this.$queue.showToast(res.msg)
 						setTimeout(()=>{
 						uni.navigateBack()	
+						
 						},500)
 					})
 				}else{
@@ -105,7 +106,6 @@
 			},
 			// 删除视频
 			deleteVideo(){
-				// this.videoSrc==''
 				uni.showModal({
 					title: '提示',
 					content: '确定要删除视频吗',

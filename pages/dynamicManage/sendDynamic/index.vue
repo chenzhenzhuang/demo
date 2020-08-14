@@ -6,7 +6,7 @@
 					<video :src="item.video_url" :poster="item.cover" :data-id="item.id" @play="playing" :id="item.id" controls></video>
 				</div>
 				<view class="right-info">
-					<view class="send-times">发布时间：{{item.release_at|times}}</view>
+					<view class="send-times">发布时间：{{item.created_at|times}}</view>
 					<view class="describe">
 						{{item.content}}
 					</view>
