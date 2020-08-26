@@ -42,7 +42,7 @@
 			return {
 				searchclass:'',																//搜索的课程名字
 				classIsOver:[],																//已上线下课列表
-				pages:0,																			//页码
+				pages:1,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
 				timer:'',																			//计时器节流
@@ -59,7 +59,7 @@
 					clearTimeout(this.timer)
 				}
 				this.timer = setTimeout(()=>{
-					this.pages=0
+					this.pages=1
 					this.classIsOver = []
 					this.handlealreadyList()
 				},500)

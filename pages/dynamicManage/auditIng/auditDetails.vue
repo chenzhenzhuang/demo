@@ -7,8 +7,8 @@
 			<view class="describe">
 				{{dynamicContent.content}}
 			</view>
-			<view class="send-time">
-				创建时间：{{dynamicContent.created_at|times}}
+			<view class="send-time" v-if="dynamicContent.created_at!=''">
+				创建时间：{{dynamicContent.created_at}}
 			</view>
 		</view>
 	</view>

@@ -8,10 +8,10 @@
 				{{dynamicContent.content}}
 			</view>
 			<view class="send-time">
-				创建时间：{{dynamicContent.created_at|times}}
+				创建时间：{{dynamicContent.created_at}}
 			</view>
 			<view class="reject-time">
-				拒绝时间：{{dynamicContent.rejected_at|times}}
+				拒绝时间：{{dynamicContent.rejected_at}}
 			</view>
 		</view>
 		<view class="reject-reason">

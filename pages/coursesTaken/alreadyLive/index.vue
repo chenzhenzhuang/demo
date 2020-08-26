@@ -38,7 +38,7 @@
 		data() {
 			return {
 				alreadyLiveList: [],													//待录制列表
-				pages:0,																			//页码
+				pages:1,																			//页码
 				pageSize:'',																	//页数
 				count:''																			//总量
 			};

@@ -37,6 +37,8 @@
 				zg.stopPublishingStream(this.streamId)
 			},
 			handleEnter() {
+				// 推流
+				// 进入房间 ，   现在是测试代码，参数写死的，想再次推流的话就刷新一下
 				let zg = new ZegoExpressEngine(4269792966, 'wss://webliveroom-test.zego.im/ws')
 				this.$request.post('broadcast/sdk/token', {
 					uid: this.$queue.getData('uid')
@@ -49,10 +51,12 @@
 						if (res) {
 							zg.createStream().then(res => {
 								let previewStream = res
+								console.log(res)
 								this.streamId = res.id
 								if(zg.startPublishingStream(this.streamId,previewStream)){
 									let videoPlay =  document.querySelector('video');
 									videoPlay.srcObject = previewStream;
+									videoPlay.muted = false
 								}
 							}).catch(err => {
 								console.log(err)

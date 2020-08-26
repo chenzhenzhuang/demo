@@ -2,7 +2,7 @@
 	<view class="assign-work">
 		<view class="select-student">
 			<view class="title">已选学生</view>
-			<view class="select-item" v-for="(item,index) in selectStudentList" :key="item.id">
+			<view class="select-item" v-for="(item,index) in selectStudentList" :key="index">
 				<view class="left">
 					<view class="head-img">
 						<image :src="item.member.avatar" mode="aspectFill"></image>
@@ -85,7 +85,7 @@
 			<view class="select-box">
 				<scroll-view scroll-y="true" class="select-students">
 							<!-- 学生信息 -->
-							<view v-for="item in moreStudentList" :key="item.id" class="student-info" @click="selectStudent(item.id)">
+							<view v-for="item in moreStudentList" :key="item.id" class="student-info" @click="selectStudent(item)">
 								<view class="right">
 									<view class="right-box">
 										<view class="head-img">
@@ -126,21 +126,23 @@
 			},
 		data() {
 			return {
-				workId:'',																							//作业课节id
+				workId:[],																							//作业课节id
 				courseId:'',																						//课程id
 				instaId:'',																							//机构id
 				id:'',																									//线下课id
 				selectId:[],																						//选中
-				allChecked:false,
+				selectIdTem:[],																					//选中时临时数据
+				allChecked:false,																				//是否全选
 				cid:'',																									//课程分类id
 				claimlist:[],																						//课程
 				selectStudentList:[],																		//选中学生列表
+				selectStudentListTem:[],																//选中学生列表临时数据
 				selectTime:'',																					//选中的时间
 				workClaim:'',																						//作业要求
 				isSelectCourse:false,																		//是否选中看视频
 				selectTypes:[],																					//选中的作业
 				moreStudentList:[],																			//更多学生
-				moreSelect:[],																					//更多选择学生
+				// moreSelect:[],																					//更多选择学生
 				workList:[],																						//作业列表
 				workType:[{
 					type:0,
@@ -167,19 +169,24 @@
 		onShow() {
 			
 			this.selectStudentList = JSON.parse(JSON.stringify(this.$queue.getData('studentList')))
-				var sid = this.selectStudentList.map(item=>{
-					return item.id
+			// console.log(this.selectStudentList)
+				this.selectStudentList.forEach(item=>{
+					this.selectId.push(item.id)
 			})
-			this.selectId = sid
-			this.workList = this.$queue.getData('workList')
-			let work = this.workList.map(item=>{
-				return item.id
-			})
-			this.workId = work
+			
+			// console.log(this.selectId)
+			// this.selectId = sid
+			// this.workList = JSON.parse(JSON.stringify(this.$queue.getData('workList')))
+			// console.log(work)
+			//  this.workList.forEach(item=>{
+			// 	this.workId.push(item.id)
+			// })
+			// console.log(this.workList)
 		},
 		methods:{
 			// 提交作业
 			submitWork(){
+				
 				this.$request.post('operation/index/increase',{
 					offline_course_id:this.courseId,
 					offline_course_schedule_id:this.cid,
@@ -193,6 +200,11 @@
 					this.$queue.showToast(res.msg)
 					this.$queue.remove('workList'),
 					this.$queue.remove('studentList')
+					setTimeout(()=>{
+						uni.switchTab({
+							url:'/pages/coursesTaken/index'
+						})
+					},500)
 				})
 			},
 			// 删除课程
@@ -202,35 +214,34 @@
 			// 确定选择
 			saveStudent(){
 				this.$refs.select.close()
-				this.selectStudentList = this.selectStudentList.concat(this.moreSelect)
+				this.selectId=this.selectIdTem
+				this.selectStudentList=this.selectStudentListTem
 			},
 			deleteStudent(index){
 				// 删除学生
 				this.selectStudentList.splice(index,1)
+				this.selectId.splice(index,1)
 			},
 			// 选择学生
-			selectStudent(sid){
-				this.moreStudentList.forEach(item=>{
-					if(item.id==sid){
-						// 选中时
-						if(item.isActive){
-							item.isActive = false
-							this.allChecked = false										//全选取消
-							this.moreSelect.forEach((it,index)=>{
-								if(it.id==sid){
-									this.moreSelect.splice(index,1)
-								}
-							})
-						}else{			//未选中
-							item.isActive = true
-							this.moreSelect.push(item)
-							this.selectId.push(item.id)
-							if (this.moreSelect.length > 0 && this.moreSelect.length == this.moreStudentList.length) {
-									this.allChecked = true;
-								}
-						}
+			selectStudent(item){
+				if(item.isActive){
+					//取消当前选中的
+					let index=this.selectIdTem.indexOf(item.id)
+					this.selectIdTem.splice(index,1)
+					this.selectStudentListTem.splice(index,1)
+					this.allChecked=false
+					item.isActive=false
+				}else{
+					//选中当前的
+					this.selectIdTem.push(item.id)
+					this.selectStudentListTem.push(item)
+					item.isActive=true
+					if(this.moreStudentList.length==this.selectIdTem.length){
+						this.allChecked=true
+					}else{
+						this.allChecked=false
 					}
-				})
+				}
 			},
 			// 全选学生
 			selectAll(){
@@ -240,12 +251,15 @@
 							item.isActive = false
 						})
 						this.allChecked=false
-						this.moreSelect=[]
+						this.selectStudentListTem=[]
+						this.selectIdTem=[]
+						this
 					}else{
 						//全选
 						this.moreStudentList.forEach(item =>{
 							item.isActive = true
-							this.moreSelect.push(item)
+							this.selectStudentListTem.push(item)
+							this.selectIdTem.push(item.id)
 						})
 						this.allChecked=true
 						
@@ -254,14 +268,18 @@
 			// 更多学生列表
 			selectMore(){
 				this.$refs.select.open()
-				this.moreSelect = []
 				this.$request.post('/schedule/student/select_more',{
 					offline_course_sechedule_id:this.cid
 				}).then(res=>{
-					console.log(res)
+					this.selectIdTem=JSON.parse(JSON.stringify(this.selectId))
+					this.selectStudentListTem=JSON.parse(JSON.stringify(this.selectStudentList))
+					if(res.result.list.length==this.selectIdTem.length){
+						this.allChecked=true
+					}else{
+						this.allChecked=false
+					}
 					res.result.list.forEach(item=>{
-						console.log(this.selectId.includes(item.id))
-						if(this.selectId.includes(item.id)){
+						if(this.selectIdTem.includes(item.id)){
 							item.isActive = true
 						}else{
 							item.isActive = false

@@ -7,19 +7,19 @@
 			<view class="left">
 				<view class="img">
 					<image :src="info.avatar" mode="aspectFill"></image>
-					<image src="/static/boy.png" mode="aspectFill" class="sex" v-if="info.profile.sex==1"></image>
-					<image src="/static/gril.png" mode="aspectFill" class="sex" v-if="info.profile.sex==0"></image>
+					<image src="/static/boy.png" mode="aspectFill" class="sex" v-if="userInfoDetails.sex==1"></image>
+					<image src="/static/gril.png" mode="aspectFill" class="sex" v-if="userInfoDetails.sex==0"></image>
 				</view>
 				<view class="left-info">
 					<view class="name">{{info.name}}</view>
-					<view class="age">年龄：{{info.profile.age}}岁</view>
-					<view class="job-address" v-if="info.profile.type==2">任职机构：{{info.profile.institution.edu_name}}</view>
+					<view class="age">年龄：{{userInfoDetails.age}}岁</view>
+					<view class="job-address" v-if="userInfoDetails.type==2">任职机构：{{userInfoDetails.institution.edu_name}}</view>
 				</view>
 			</view>
-			<view class="full-teacher" v-if="info.profile.type==2">
+			<view class="full-teacher" v-if="userInfoDetails.type==2">
 				全职老师
 			</view>
-			<view class="part-teacher" v-if="info.profile.type==1">
+			<view class="part-teacher" v-if="userInfoDetails.type==1">
 				兼职老师
 			</view>
 		</view>
@@ -29,7 +29,7 @@
 				<view class="img"><image src="/static/turnRight.png" mode="aspectFill"></image></view>
 			</view>
 			<view class="order-area">
-				<template v-if="info.profile.type==1">
+				<template v-if="userInfoDetails.type==1">
 					<view class="order-manage" @click="goBookManage">
 						<view class="title">预约管理</view>
 						<view class="img"><image src="/static/turnRight.png" mode="aspectFill"></image></view>
@@ -49,6 +49,7 @@
 		data() {
 			return {
 				info:'',																//用户信息
+				userInfoDetails:'',											//详细信息
 			}
 		},
 		onLoad() {
@@ -63,6 +64,7 @@
 				this.$request.post('teacher/index/profile').then(res=>{
 					console.log(res)
 					this.info = res.result
+					this.userInfoDetails = res.result.profile
 				})
 			},
 			// 资料管理
@@ -105,7 +107,7 @@
 		.data-info-head {
 			position: absolute;
 			left: 50%;
-			top: 0;
+			top: 60rpx;
 			transform: translateX(-50%);
 			width: 690rpx;
 			height: 216rpx;
@@ -203,7 +205,7 @@
 		}
 		.manage-area{
 			position: absolute;
-			top: 240rpx;
+			top: 300rpx;
 			left: 0;
 			padding: 0 30rpx;
 			box-sizing: border-box;

@@ -26,7 +26,7 @@
 								录制章节：{{item.title}}
 							</view>
 							<view class="onlineed-student">
-								上线时间：{{item.delivery_at}}
+								上线时间：{{item.release_at|times}}
 							</view>
 							<view class="onlineed-instatution">
 								所属机构：{{item.onlineCourse.institution.edu_name}}
@@ -55,7 +55,7 @@
 								录制章节：{{item.title}}
 							</view>
 							<view class="auditinged-student">
-								上线时间：{{item.delivery_at}}
+								上传时间：{{item.delivery_at|times}}
 							</view>
 							<view class="auditinged-instatution">
 								所属机构：{{item.onlineCourse.institution.edu_name}}
@@ -84,7 +84,7 @@
 								录制章节：{{item.title}}
 							</view>
 							<view class="rejected-student">
-								上线时间：{{item.delivery_at}}
+								拒绝时间：{{item.rejected_at|times}}
 							</view>
 							<view class="rejected-instatution">
 								所属机构：{{item.onlineCourse.institution.edu_name}}
@@ -104,7 +104,7 @@
 				isActive:2,																		//选中
 				status:'',																		//状态
 				onlineList:[],																//已上线列表
-				pages:0,																			//页码
+				pages:1,																			//页码
 				pageSize:'',																	//页数
 				count:'',																			//总量
 				timer:null
@@ -148,7 +148,7 @@
 				this.isActive = index
 				this.status = index
 				this.onlineList =[]
-				this.pages = 0
+				this.pages = 1
 				// 节流
 				if (this.timer) {
 					clearTimeout(this.timer)

@@ -17,8 +17,17 @@
 				<view class="online-classed-time">
 					录制章节：{{courseDetails.title}}
 				</view>
-				<view class="online-classed-student">
-					上线时间：{{courseDetails.delivery_at}}
+				<view class="online-classed-student" v-if="courseDetails.status==1">
+					上传时间：{{courseDetails.delivery_at|times}}
+					
+				</view>
+				<view class="online-classed-student" v-if="courseDetails.status==2">
+					上线时间：{{courseDetails.delivery_at|times}}
+					
+				</view>
+				<view class="online-classed-student"v-if="courseDetails.status==3">
+					拒绝时间：{{courseDetails.rejected_at|times}}
+					
 				</view>
 				<view class="online-classed-instatution">
 					所属机构：{{courseDetails.onlineCourse.institution.edu_name}}
@@ -40,7 +49,7 @@
 				</view>
 				<view class="claim-content-upload">
 					<view class="upload-video">
-						<video src=""></video>
+						<video :src="courseDetails.video_url"></video>
 					</view>
 				</view>
 			</view>
@@ -49,7 +58,7 @@
 					拒绝原因
 				</view>
 				<view class="reject-content">
-					{{courseDetails.content}}
+					{{courseDetails.review_content}}
 				</view>
 			</view>
 		</view>

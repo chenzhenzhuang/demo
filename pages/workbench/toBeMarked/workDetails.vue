@@ -90,15 +90,14 @@
 					老师批语
 				</view>
 				<view class="scolded">
-					<textarea placeholder-class="place-style" placeholder="请输入对学生作业完成情况的批语…" maxlength="100" v-model="scoldeds"/>
+					<textarea placeholder-class="place-style" placeholder="请输入对学生作业完成情况的批语…" maxlength="100" :disabled='workDetails.if_batch==1' v-model="scoldeds"/>
+
 				</view>
 				<view class="solded-bottom">
-					<view class="give-flower">
-						 <radio-group @change="isGive">
-							 <radio value="1" class="radio">给红花</radio>
-							</radio-group>
+					<view class="give-flower" @click="isGive">
+						<radio class="radio" :checked="isFlower==1">给红花</radio>
 					</view>
-					<view class="right" @click="handleCorrect">
+					<view class="right" @click="handleCorrect" v-if="workDetails.if_batch==0">
 						确认批改
 					</view>
 				</view>
@@ -112,9 +111,10 @@
 		data() {
 			return {
 				wid:'',															//作业id
-				isFlower:'',												//是否给hua
+				isFlower:0,												//是否给hua
 				scoldeds:'',													//评语
 				workDetails:'',											//作业详情
+				ifComplete:true,										//是否完成批改
 			};
 		},
 		onLoad(option) {
@@ -129,9 +129,14 @@
 		},
 		methods:{
 			// 是否给红花
-			isGive(e){
-				// console.log(e)
-				this.isFlower = e.detail.value
+			isGive(){
+				if(this.workDetails.if_batch!=1){
+					if(this.isFlower==0){
+						this.isFlower=1
+					}else{
+						this.isFlower=0
+					}
+				}
 			},
 			// 批改作业
 			handleCorrect(){
@@ -160,6 +165,8 @@
 				}).then(res=>{
 					console.log(res)
 					this.workDetails = res.result
+					this.isFlower = res.result.flower
+					this.scoldeds = res.result.content
 				})
 			}
 		}

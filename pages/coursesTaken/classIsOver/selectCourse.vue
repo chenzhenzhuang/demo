@@ -21,7 +21,7 @@
 							{{item.name}}
 						</view>
 						<view class="course-catalogue">
-							课程分类：{{item.courseCategory.courseCategory.title}} - {{item.courseCategory.title}}
+							<!-- 课程分类：{{item.courseCategory.courseCategory.title}} - {{item.courseCategory.title}} -->
 						</view>
 						<view class="class-count">
 						课节数量：{{item.course}}节
@@ -41,7 +41,7 @@
 				instaId:'',																							//机构id
 				searchCourse:'',																				//搜索课程名称
 				courseList:[],																	//搜索课程列表
-				pages:0,																								//页码
+				pages:1,																								//页码
 				pageSize:'',																						//页数
 				count:''																								//总量
 			};
@@ -51,7 +51,7 @@
 			this.id = option.cid
 		},
 		onReachBottom() {
-			if(this.pages*this.pageSize<this.count){
+			if(this.pages*this.pageSize<=this.count){
 				this.getDetails()
 			}else{
 				this.$queue.showToast('没有更多了')
@@ -63,7 +63,7 @@
 		methods:{
 			goSearch(){
 				
-				this.pages= 0
+				this.pages= 1
 				this.courseList = []
 				this.getDetails()
 			},

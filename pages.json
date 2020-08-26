@@ -36,10 +36,10 @@
 			}
 		}, 
 		{
-		        "path" : "pages/workbench/toBeLive/living",
-		        "style" : {
-							"navigationBarTitleText": "正在直播"
-						}
+				"path" : "pages/workbench/toBeLive/living",
+				"style" : {
+					"navigationBarTitleText": "正在直播"
+				}
 		    },
 		{
 			"path": "pages/workbench/toBeMarked/workDetails",

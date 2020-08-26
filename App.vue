@@ -1,7 +1,8 @@
 <script>
 	export default {
 		globalData: {  
-				text: 'text'
+				text: 'text',
+				requstUrl:window.location.href
 		},
 		onLaunch: function() {
 			

@@ -5,7 +5,12 @@ import request from './common/request.js'
 Vue.config.productionTip = false
 //时间过滤器
 Vue.filter('times',function(value){
-	return value.replace(/-/g,'.')
+	if(value==null){
+		return value=''
+	}else{
+		return value.replace(/-/g,'.')
+	}
+	
 })
 // 转化时分秒
 Vue.filter('liveTimes',function(value){

@@ -107,7 +107,7 @@
 <style lang="scss">
 .send-dynamic{
 	width: 750rpx;
-	padding:0 30rpx;
+	padding:30rpx;
 	box-sizing: border-box;
 	.send-area{
 		width:690rpx;

@@ -20,6 +20,9 @@
 	export default {
 		data() {
 			return {
+				pages:1,																			//页码
+				pageSize:'',																	//页数
+				count:'',																			//总量
 				rejectList:[]																				//动态审核列表
 			};
 		},

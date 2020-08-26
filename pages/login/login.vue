@@ -99,15 +99,15 @@
 		
 	}
 	.logo{
-		width: 168rpx;
-		height: 104rpx;
+		width: 216rpx;
+		height: 216rpx;
 		image{
 			width: 100%;
 			height: 100%;
 		}
 	}
 	.login-content{
-		margin-top: 96rpx;
+		margin-top: 80rpx;
 		width:622rpx;
 		.phone{
 			width: 622rpx;

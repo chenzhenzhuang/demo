@@ -30,7 +30,7 @@
 			</view>
 			<view class="comment-item" v-for="item in userComment.result.memberDynamicCommentReply" :key="item.id">
 				<view class="item-left">
-					<image :src="item.member.avatar" mode="aspectFill"></image>
+					<!-- <image :src="item.member.avatar" mode="aspectFill"></image> -->
 				</view>
 				<view class="item-right">
 					<view class="info">
@@ -69,16 +69,18 @@
 				dynamicId:'',																	//动态id
 				replyName:'',																	//回复的名字
 				reply:'',																			//回复内容
-				userComment: '', 															//评论
-				id:''																					//评论id
+				userComment: '', 															//本条评论
+				commentId:''																	//评论id
 			}
 		},
 		onLoad(option) {
 			this.replyName = option.name?option.name:''
-			this.id = option.id
-			this.dynamicId = option.dynamicId
+			this.commentId = 	option.id												
+			this.dynamicId = option.dynamicId		
+			
+		},
+		onShow(){
 			this.getComment()
-			console.log(this.dynamicId)
 		},
 		computed:{
 			placeName(){
@@ -88,23 +90,24 @@
 		methods:{
 			// 发表评论
 			send(){
-				this.$request.post('dynamic/comment/increase',{
-					comment_id:this.dynamicId,
-					dynamic_id:this.id,
+				this.$request.post('dynamic/reply/increase',{
+					comment_id:this.commentId,											//评论id
+					dynamic_id:this.dynamicId,											//动态id
 					content:this.reply,
 					to_uid:this.userComment.result.memberDynamicComment.uid
+					
 				}).then(res=>{
 					this.$queue.showToast(res.msg)
 					setTimeout(()=>{
 						this.getComment()
 					},500)
-					// this.replyContent = ''
+					this.reply = ''
 				})
 			},
 			// 获取评论列表
 			getComment(){
 				this.$request.post('dynamic/comment/details',{
-					id:this.id,
+					id:this.commentId,
 					pages:0,
 					limit:10,
 				}).then(res=>{

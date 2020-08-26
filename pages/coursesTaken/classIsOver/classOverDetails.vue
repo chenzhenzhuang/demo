@@ -26,7 +26,7 @@
 			</view>
 			<view class="head-time">
 				<view>
-					上课时间：{{courseDetails.signin_at}}~下课时间:{{courseDetails.signout_at}}
+					上课时间: {{courseDetails.signin_at.slice(0,-3)|times}}~下课时间: {{courseDetails.signout_at.slice(0,-3)|times}}
 				</view>
 			</view>
 		</view>
@@ -35,7 +35,7 @@
 			<!-- 学生信息 -->
 
 			<view v-for="item in courseDetails.offlineCourseScheduleStudents" :key="item.id" class="student-info" @click="selectStudent(item.id)">
-				<radio color="#00B7F4" :checked="item.if_operation? '':item.isActive" :disabled="item.if_operation==1"></radio>
+				<radio color="#00B7F4" :checked="item.isActive"></radio>
 				<view class="right">
 					<view class="right-box">
 						<view class="head-img">
@@ -236,7 +236,7 @@
 			}
 
 			.head-time {
-				width: 614rpx;
+				width: 650rpx;
 				margin-top: 32rpx;
 				font-size: 24rpx;
 				font-family: PingFangSC-Regular, PingFang SC;

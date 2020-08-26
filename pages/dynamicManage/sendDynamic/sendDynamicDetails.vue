@@ -103,7 +103,7 @@
 				this.$request.post('dynamic/dynamic/details',{
 					id:this.id
 				}).then(res=>{
-					console.log(res)
+					console.log(res,111)
 					this.dynamicContent = res.result
 				})
 			},
@@ -192,7 +192,7 @@
 				color:rgba(51,51,51,1);
 			}
 			.scroll-comment{
-				height: calc(100vh - 690rpx);
+				height: calc(100vh - 812rpx);
 			}
 			.comment-item{
 				display: flex;

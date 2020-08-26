@@ -8,7 +8,7 @@
 		<view class="control">
 			<view :class="active==0?'actives':''" @click="slider(0)">待上课</view>
 			<view :class="active==1?'actives':''" @click="slider(1)">待录制</view>
-			<view :class="active==2?'actives':''" @click="slider(2)">待直播</view>
+			<view :class="active==2?'actives':''" @click="slider(2)">直播课</view>
 			<view :class="active==3?'actives':''" @click="slider(3)">批改作业</view>
 		</view>
 		<view class="work-box">
@@ -66,9 +66,13 @@
 							<view class="to-be-live" @click="goLiveDetails(item.id)">
 								<view class="live-cover">
 									<image :src="item.cover" mode="aspectFill"></image>
-									<view class="tag">
-										{{item.ifopen?'公开课':'私有课'}}
+									<view class="tags" v-if="item.ifopen=='0'">
+										私有课
 									</view>
+									<view class="tag" v-if="item.ifopen=='1'">
+										公开课
+									</view>
+									
 								</view>
 								<view class="live-info">
 									<view class="live-title">
@@ -79,6 +83,12 @@
 									</view>
 									<view class="live-instatution">
 										所属机构：{{item.institution.edu_name}}
+									</view>
+									<view class="to-be-living" v-if="item.status==1">
+										待直播
+									</view>
+									<view class="living" v-if="item.status==2">
+										直播中
 									</view>
 								</view>
 							</view>
@@ -102,7 +112,7 @@
 										<image src="/static/noComplated.png" mode="aspectFill" v-if="item.status==1"></image>
 									</view>
 									<view class="correct">
-										{{item.if_batch?'已批改':'未批改'}}
+										{{item.if_batch==1?'已批改':'未批改'}}
 									</view>
 								</view>
 							</view>
@@ -120,8 +130,8 @@
 		},
 		data() {
 			return {
-			 active: 0,					//选中的item
-			 pages:0,																			//页码
+			 active: 0,																		//选中的item
+			 pages:1,																			//页码
 			 pageSize:'',																	//页数
 			 count:'',																		//总数
 			 date:this.dateS(),														//时间
@@ -155,7 +165,7 @@
 				}
 			}
 		},
-		onLoad() {
+		onShow() {
 			this.handleWillList()
 		},
 		methods: {
@@ -254,19 +264,19 @@
 			 change(e){
 				 this.date = e.fulldate
 				 if(this.active==0){
-					this.pages=0
+					this.pages=1
 					this.list = []
 				 	this.handleWillList()
 				 }else if(this.active==1){
-					this.pages=0
+					this.pages=1
 					this.list = []
 				 	this.handleToBeRecord()
 				 }else if(this.active==2){
-					 this.pages=0
+					 this.pages=1
 					 this.list = []
 				 	this.handleToBeLive()
 				 }else if(this.active==3){
-					 this.pages=0
+					 this.pages=1
 					 this.list = []
 				 	this.handleToBeMarked()
 				 }
@@ -275,19 +285,19 @@
 			slider(index){
 				this.active = index
 				if(index==0){
-					this.pages=0
+					this.pages=1
 					this.list = []
 					this.handleWillList()
 				}else if(index==1){
-					this.pages=0
+					this.pages=1
 					this.list = []
 					this.handleToBeRecord()
 				}else if(index==2){
-					this.pages=0
+					this.pages=1
 					this.list = []
 					this.handleToBeLive()
 				}else if(index==3){
-					this.pages=0
+					this.pages=1
 					this.list = []
 					this.handleToBeMarked()
 				}
@@ -407,6 +417,22 @@
 						font-family:PingFangSC-Regular,PingFang SC;
 						color:rgba(255,255,255,1);
 					}
+					.tags{
+						position: absolute;
+						top: 0;
+						left: 0;
+						width:97rpx;
+						height:50rpx;
+						background:#00B7F4;
+						border-radius:8rpx;
+						opacity:0.8;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						font-size:24rpx;
+						font-family:PingFangSC-Regular,PingFang SC;
+						color:rgba(255,255,255,1);
+					}
 				}
 				.recorded-info{
 					view ~ view {
@@ -434,6 +460,7 @@
 			}
 			//带直播
 			.to-be-live{
+				
 				display: flex;
 				align-items: center;
 				margin-bottom: 50rpx;
@@ -454,7 +481,23 @@
 						height:50rpx;
 						background:rgba(219,0,0,1);
 						border-radius:8rpx;
-						opacity:0.56;
+						opacity:0.8;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						font-size:24rpx;
+						font-family:PingFangSC-Regular,PingFang SC;
+						color:rgba(255,255,255,1);
+					}
+					.tags{
+						position: absolute;
+						top: 0;
+						left: 0;
+						width:97rpx;
+						height:50rpx;
+						background:#00B7F4;
+						border-radius:8rpx;
+						opacity:0.8;
 						display: flex;
 						align-items: center;
 						justify-content: center;
@@ -464,6 +507,7 @@
 					}
 				}
 				.live-info{
+					
 					view ~ view {
 						margin-top: 14rpx;
 					}
@@ -487,6 +531,34 @@
 						overflow: hidden;
 						text-overflow: ellipsis;
 						white-space: nowrap;
+					}
+					.to-be-living{
+						width:97rpx;
+						height:50rpx;
+						border-radius:8rpx;
+						background:#00B7F4;
+						opacity:0.8;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						font-size:24rpx;
+						font-family:PingFangSC-Regular,PingFang SC;
+						color:rgba(255,255,255,1);
+					}
+					.living{
+						background:rgba(219,0,0,1);
+						
+						width:97rpx;
+						height:50rpx;
+						border-radius:8rpx;
+						opacity:0.8;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						font-size:24rpx;
+						font-family:PingFangSC-Regular,PingFang SC;
+						color:rgba(255,255,255,1);
+						
 					}
 				}
 			}
